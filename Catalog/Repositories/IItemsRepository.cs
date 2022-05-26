@@ -4,11 +4,16 @@ using Catalog.Entities;
 
 namespace Catalog.Repositories
 {
-    public interface IItemsRepository
+    public interface UpdateItem
+    {
+        void UpdateItem(Item item);
+    }
+
+    public interface IItemsRepository : UpdateItem
     {
             IEnumerable<Item> GetItems();
             Item GetItem(Guid id);
             void CreateItem(Item item);
-
+            void DeleteItem(Guid id);
     }
 }
