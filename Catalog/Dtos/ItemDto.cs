@@ -10,6 +10,6 @@ namespace Catalog.Dtos
         
         public decimal Price { get; init; }
         
-        public DateTimeOffset CreatedDate { get; init; }
+        public DateTimeOffset CreatedDate { get; set; }
     }
 }
