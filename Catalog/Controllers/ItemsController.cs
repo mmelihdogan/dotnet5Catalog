@@ -63,14 +63,14 @@ namespace Catalog.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateItemAsync(Guid id, UpdateItemDto itemDto)
         {
-            var existingItem = repository.GetItemAsync(id);
+            var existingItem = await repository.GetItemAsync(id);
 
             if (existingItem is null)
             {
                 return NotFound();
             }
 
-            Item updatedItem = existingItem with
+            var updatedItem = existingItem with
             {
                 Name = itemDto.Name,
                 Price = itemDto.Price
