@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Catalog.Entities;
 
 namespace Catalog.Repositories
 {
-    public interface UpdateItem
+    public interface IItemsRepository
     {
-        void UpdateItem(Item item);
-    }
-
-    public interface IItemsRepository : UpdateItem
-    {
-            IEnumerable<Item> GetItems();
-            Item GetItem(Guid id);
-            void CreateItem(Item item);
-            void DeleteItem(Guid id);
+        Task<IEnumerable<Item>> GetItemsAsync();
+        Task<Item> GetItemAsync(Guid id);
+        Task CreateItemAsync(Item item);
+        Task UpdateItemAsync(Item item);
+        Task DeleteItemAsync(Guid id);
     }
 }
