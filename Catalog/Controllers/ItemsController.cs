@@ -31,7 +31,7 @@ namespace Catalog.Controllers
 
         // GET /items/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<ItemDto>> GetItemAsync(Guid id)
+        public async Task<ActionResult<ItemDto>> GetItem(Guid id)
         {
             var item = await repository.GetItemAsync(id);
 
@@ -55,8 +55,8 @@ namespace Catalog.Controllers
             };
             
             await repository.CreateItemAsync(item);
-
-            return CreatedAtAction(nameof(GetItemAsync), new { id = item.Id }, item.AsDto());
+            return CreatedAtAction(nameof(GetItem), new { id = item.Id }, item.AsDto());
+                // CreatedAtAction(nameof(GetItemAsync), new { id = item.Id }, item.AsDto());
         }
         
         // PUT /items/{id}
